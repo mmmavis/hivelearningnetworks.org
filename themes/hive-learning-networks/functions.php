@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(__FILE__).'/widgets.php');
+include('class/HiveProfile.php');
 
 
 function add_bootstrap_scripts_with_jquery() {
@@ -66,5 +67,20 @@ function hive_register_sidebars() {
 }
 
 add_action( 'widgets_init', 'hive_register_sidebars' );
+
+
+
+function my_acf_get_fields_in_group($group_id) {
+  $acf_meta = get_post_custom($group_id);
+  $acf_fields = array();
+  foreach ($acf_meta as $key => $val) {
+    if (preg_match("/^field_", $key)) {
+      $acf_fields[$key] = $val;
+    } else {
+      echo 'hi';
+    }
+  }
+  return $acf_fields;
+}
 
 ?>

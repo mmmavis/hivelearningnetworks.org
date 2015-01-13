@@ -13,6 +13,22 @@
             <div class="page-description">
               <p> We are a growing constellation of communities championing digital skills and web literacy through connected learning.</p>
             </div>
+            <?php
+              // $groupID = 144;
+              // $fields = get_field_objects(16);
+              // // $fields = get_fields($groupID);
+              // // $fields = api_acf_field_group_get_fields($fields, $group_ID);
+              // echo 'wtf';
+              // if ( $fields ) {
+              //   echo 'hi';
+              //   foreach($fields as $field ) {
+              //     echo $field;
+              //     $value = get_field($field['name']);
+              //     echo '<div style="color: blue">' . $field['label'] . '</div>';
+              //     echo '<div style="color: red">' . $value . '</div>';
+              //   }
+              // }
+            ?>
           </div>
         </div>
         <div class="row">
@@ -54,6 +70,8 @@
 
     <!-- Profile sections starts ============================ -->
     <div id="hive-profile-section">
+
+      <?php get_template_part( "hive-profiles" ); ?>
 
       <!-- Info for Hive Chicago Starts ======================================== -->
       <div class="container">
