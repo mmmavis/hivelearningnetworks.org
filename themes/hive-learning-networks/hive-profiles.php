@@ -39,6 +39,10 @@
         $currentProfile->setProperty('description', get_field($field_name));
       }
 
+      if ( explode("_", $field_name)[0] === 'links' ) {
+        $currentProfile->setProperty('links', get_field($field_name));
+      }
+
       // last field in this Field Group, also the last field of the last Hive Profile
       if ( $count === $numAllFields ) {
         // push the last profile to $allProfiles array
@@ -60,6 +64,7 @@
     $mainWebsite = $profile->getProperty("mainWebsite");
     $logoUrl = $profile->getProperty("logoUrl");
     $description = $profile->getProperty("description");
+    $links = $profile->getProperty("links");
     echo
       '<div class="container">' .
         '<div class="hive-profile" data-profile="' . $name . '">' .
@@ -80,8 +85,7 @@
                   '</div>' .
                 '</div>' .
                 '<div class="col-md-6">' .
-                  '<ul class="no-bullet related-sites">' .
-                  '</ul>' .
+                  '<ul class="no-bullet related-sites">' . $links . '</ul>' .
                 '</div>' .
               '</div>' .
               '<div class="row hive-description">' .
